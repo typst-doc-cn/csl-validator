@@ -112,9 +112,18 @@ var CSLValidator = (function() {
         else if (version == "1.0.2") {
           var schemaURL = "https://raw.githubusercontent.com/citation-style-language/schema/v1.0.2/schemas/styles/csl.rnc";
         }
+        else if (version.startsWith("csl-m:")) {
+          const commit = version.slice('csl-m:'.length);
+          var schemaURL = `https://github.com/Juris-M/schema/raw/${commit}/csl-mlz.rnc`;
+        }
+        else if (version.startsWith("zotero-chinese:")) {
+          const commit = version.slice('zotero-chinese:'.length);
+          var schemaURL = `https://github.com/zotero-chinese/csl-m-schema-rng/raw/${commit}/generated-schemas/merged/csl-mlz.rng`;
+        }
         else {
           var schemaURL = "https://raw.githubusercontent.com/citation-style-language/schema/v" + version + "/csl.rnc";
         }
+        // csl.sch is version-agnostic because it only checks if all used macros have been defined.
         schemaURL += " " + "https://raw.githubusercontent.com/citation-style-language/schema/602ad40976b7b455a3ce0b79f5534e8e75f088e9/csl.sch";
 
         var sourceMethod = $('#source-method').val();
@@ -276,7 +285,7 @@ var CSLValidator = (function() {
             } else {
                 $("#alert").append('<div class="inserted alert alert-danger" role="alert">Oops, I found ' + errorCount + ' errors.</div>');
             }
-            $("#alert > div.alert-danger").append('</br><small>If you have trouble understanding the error messages below, start by reading the <a href="http://docs.citationstyles.org/en/stable/specification.html">CSL specification</a>.</small>');
+            $("#alert > div.alert-danger").append('</br><small>If you have trouble understanding the error messages below, start by reading the <a href="http://docs.citationstyles.org/en/stable/specification.html">CSL specification</a> (and the <a href="https://citeproc-js.readthedocs.io/en/latest/csl-m/">CSL-M extension</a> if applicable).</small>');
 
             $("#errors").attr("class", "panel panel-warning");
             $("#errors").prepend('<div class="panel-heading inserted"><h4 class="panel-title">Errors <a href="#" rel="tooltip" class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="auto left" title="Click the link next to an error description to highlight the relevant lines in the Source window below"></a></h4></div>');
