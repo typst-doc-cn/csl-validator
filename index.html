@@ -41,18 +41,18 @@
   </style>
   <link rel="icon" type="image/png" href="images/favicon-32x32.png">
 
-  <title>CSL Validator</title>
+  <title>CSL Validator (forked by Typst Chinese Community)</title>
 </head>
 
 <body class="d-flex flex-column h-100">
   <header>
     <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-md navbar-dark">
-      <a class="navbar-brand mb-0 h1" href="https://validator.citationstyles.org/"><img src="images/logo.svg" width="30" height="30" class="d-inline-block align-middle mr-2" alt="">CSL Style and Locale Validator</a>
+      <a class="navbar-brand mb-0 h1" href="https://typst-doc-cn.github.io/csl-validator/"><img src="images/logo.svg" width="30" height="30" class="d-inline-block align-middle mr-2" alt="">CSL Style and Locale Validator</a>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="https://citationstyles.org/" target="_blank">CitationStyles.org</a>
+            <a class="nav-link" href="https://typst-doc-cn.github.io/guide/" target="_blank">forked by Typst Chinese Community</a>
           </li>
         </ul>
       </div>
@@ -128,15 +128,38 @@
             <a href="https://github.com/citation-style-language/styles/" target="_blank">style repository</a> or <a href="https://github.com/citation-style-language/locales/" target="_blank">locale repository</a>.
             For style submissions, once your CSL style validates without errors, please run your style through our <a href="https://formatter.citationstyles.org/" target="_blank">CSL Style Formatter</a>.</p>
         </div>
+        <div class="col-md-6 offset-md-1">
+          <h4>About This Fork</h4>
+          <p>
+            This is a fork of the <a href="https://validator.citationstyles.org/" target="_blank">official CSL validator</a>.
+            <a href="https://citeproc-js.readthedocs.io/en/latest/csl-m/" target="_blank">CSL-M extensions</a> and <a href="https://github.com/zotero-chinese/csl-m-schema-rng" target="_blank">Zotero Chinese Community’s schema</a> are added to facilitate debugging styles beyond the CSL specification.
+          </p>
+          <p>
+            Note that Zotero Chinese Community’s schema might still be helpful even if you are not doing anything related to Chinese.
+            Their schema is more like an up-to-date description of <a href="https://citeproc-js.readthedocs.io/" target="_blank">citeproc-js</a> (the engine used by <a href="https://www.zotero.org/" target="_blank">Zotero</a>). It contains a few undocumented features of citeproc-js. For example, the <a href="https://github.com/zotero-chinese/styles/discussions/439" target="_blank">term <code>citation-range-delimiter</code></a> and <a href="https://github.com/zotero-chinese/styles/discussions/598#discussioncomment-15125308" target="_blank">arbitrary extra fields in <code>notes</code></a>.
+          </p>
+        </div>
+        <div class="col-md-6 offset-md-1">
+          <h4>Relevant links</h4>
+          <ul>
+            <li><a href="https://zotero-chinese.com/styles/">中文 CSL 样式 (Chinese CSL styles) | Zotero 中文社区</a></li>
+            <li><a href="https://typst.app/docs/reference/model/bibliography/">Bibliography Function | Typst Documentation</a></li>
+            <li><a href="https://typst-doc-cn.github.io/csl-sanitizer/">可用于 Hayagriva 的 CSL 样式——CSL sanitizer for Hayagriva | Typst 中文社区</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </main>
 
-  <footer class="footer mt-auto py-3">
+  <footer class="footer mt-auto">
     <div class="container-fluid">
       <span class="text-muted">Created by <a href="https://rintze.zelle.me/" target="_blank">Rintze M. Zelle</a> (<a href="https://twitter.com/rintzezelle/" target="_blank"><img src="images/Twitter_Logo_Blue.svg" alt="Twitter Profile" width="25"
-            height="25" /></a>).
-        Powered by <a href="https://validator.w3.org/nu/">Nu HTML Checker</a> and GitHub Pages. <a href="https://github.com/citation-style-language/csl-validator">Code</a> on GitHub.</span>
+            height="25" /></a>)
+        and forked by <a href="https://typst-doc-cn.github.io/guide/">Typst Chinese Community</a>.
+        <br>
+        Powered by <a href="https://validator.w3.org/nu/">Nu HTML Checker</a> and GitHub Pages.
+        <br>
+        <a href="https://github.com/typst-doc-cn/csl-validator">Code</a> on GitHub.</span>
     </div>
   </footer>
 
