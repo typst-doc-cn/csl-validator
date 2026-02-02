@@ -31,15 +31,19 @@ var CSLValidator = (function() {
 
         //set schema-version if specified
         if (uri.hasQuery('version')) {
-          var setSchemaVersion = uri.query(true)['version'];
-
-          //http://stackoverflow.com/a/2248991/1712389
-          $('#schema-version option').each(function() {
-              if (this.value == setSchemaVersion) {
-                  $("#schema-version").val(setSchemaVersion);
-                  return false;
-              }
-          });
+          /** @type {string} */
+          const setSchemaVersion = uri.query(true)['version'];
+        
+          const existingVersions = Array.from($('#schema-version option')).map(o => o.value)
+          if (!existingVersions.includes(setSchemaVersion)) {
+            // If `setSchemaVersion` does not exist in the form, prepend it to the form.
+            $('#schema-version').prepend($('<option>', {
+                value: setSchemaVersion,
+                text: setSchemaVersion.replace(/^csl-m:(.+)$/, 'CSL-M ($1)').replace(/^zotero-chinese:(.+)$/, 'Zotero Chinese ($1)'),
+            }));
+          }
+          // Select the existing or newly added option.
+          $('#schema-version').val(setSchemaVersion);
         }
 
         //run validation if URL parameters includes URL
